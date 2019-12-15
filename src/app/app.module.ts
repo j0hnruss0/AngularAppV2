@@ -11,13 +11,16 @@ import { ItemAlertComponent } from './item-alert/item-alert.component';
 import { DataService } from "./data.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { OneJobDisplayComponent } from './one-job-display/one-job-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     ItemListComponent,
-    ItemAlertComponent
+    ItemAlertComponent,
+    OneJobDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { MatCardModule } from '@angular/material/card';
       { path: '', component: ItemListComponent },
     ]),
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

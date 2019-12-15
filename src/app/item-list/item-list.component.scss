@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Girassol|Raleway|Roboto&display=swap');
+
 .job-card {
   width: 85%;
   margin: 0 auto;
   margin-bottom: 15px;
+}
+
+.job-card h1 {
+  font-family: 'Girassol', cursive;
 }
 
 .inner-card {

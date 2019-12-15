@@ -26,12 +26,13 @@
 
 <div *ngFor="let job of allJobs">
   <mat-card class="job-card">
-    <mat-card-header>
+    <!-- <mat-card-header>
       <h1>{{job.data.title}}</h1>
     </mat-card-header>
     <mat-card-content class="inner-card">
       <p>{{job.data.street_address}}</p>
       <p>{{job.data.meta_data.googlejobs.jobSummary}}</p>
-    </mat-card-content>
+    </mat-card-content> -->
+    <app-one-job-display [job]="job"></app-one-job-display>
   </mat-card>
 </div>
