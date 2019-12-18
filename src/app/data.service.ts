@@ -14,4 +14,8 @@ export class DataService {
   getData(): Observable<any> {
     return this._http.get<Job[]>(this.apiUrl);
   }
+
+  getEasyData(): Observable<any> {
+    return this._http.get(this.apiUrl);
+  }
 }

@@ -23,16 +23,51 @@
   </app-item-alert>
 
 </div> -->
+<form 
+  class="job-filter-form" 
+  (ngSubmit)="onSubmit()" 
+>
+  <mat-form-field>
+    <input 
+      type="text" 
+      placeholder="Search for a Job"
+      matInput [formControl]="jobSearch" 
+      [matAutocomplete]="auto"
+    >
+  </mat-form-field>
+  <button type="submit">Filter Results</button>
+</form>
 
-<div *ngFor="let job of allJobs">
-  <mat-card class="job-card">
-    <!-- <mat-card-header>
-      <h1>{{job.data.title}}</h1>
-    </mat-card-header>
-    <mat-card-content class="inner-card">
-      <p>{{job.data.street_address}}</p>
-      <p>{{job.data.meta_data.googlejobs.jobSummary}}</p>
-    </mat-card-content> -->
-    <app-one-job-display [job]="job"></app-one-job-display>
-  </mat-card>
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option 
+    *ngFor="let job of clearData" 
+    [value]="job.data.title"
+  >
+    {{ job.data.title }}
+  </mat-option>
+</mat-autocomplete>
+
+<div *ngIf="!filtered; else filteredJob">
+  <div *ngFor="let job of allJobs">
+    <mat-card class="job-card">
+      <!-- <mat-card-header>
+        <h1>{{job.data.title}}</h1>
+      </mat-card-header>
+      <mat-card-content class="inner-card">
+        <p>{{job.data.street_address}}</p>
+        <p>{{job.data.meta_data.googlejobs.jobSummary}}</p>
+      </mat-card-content> -->
+      <app-one-job-display [job]="job"></app-one-job-display>
+    </mat-card>
+  </div>
 </div>
+<ng-template #filteredJob>
+  <div *ngFor="let job of allJobs">
+    <div *ngIf="job.data.title === searchParam">
+      <mat-card class="job-card">
+        <app-one-job-display [job]="job"></app-one-job-display>
+      </mat-card>
+    </div>
+  </div>
+  <button class="undo-button" (click)="filtered = false">Undo Search</button>
+</ng-template>
