@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -15,10 +15,12 @@ export class ItemListComponent implements OnInit {
 
   products = products;
   allJobs: Job[];
-  clearData;
+  clearData: any =[];
   filtered = false;
   searchParam: string;
+  searchId: string;
   jobSearch = new FormControl();
+  filteredOptions: Observable<any>;
 
   share() {
     window.alert('The product has been shared!');
@@ -37,6 +39,12 @@ export class ItemListComponent implements OnInit {
 
     this.dataServe.getEasyData()
       .subscribe(res=> this.clearData = res.jobs)
+
+    this.filteredOptions = this.jobSearch.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
 
   beginFilter(query) {
@@ -48,13 +56,14 @@ export class ItemListComponent implements OnInit {
     }
   }
 
-  setValue(name, id) {
-    this.searchParam = id
-    return name
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.clearData.filter(option => option.data.title.toLowerCase().includes(filterValue));
   }
 
   onSubmit() {
-    console.log(this.filtered)
+    console.log(this.clearData)
     if (this.filtered === false) {
       this.filtered = true;
       this.searchParam = this.jobSearch.value;

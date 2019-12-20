@@ -1,6 +1,7 @@
 <mat-accordion class="new-card">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
+      <mat-icon [svgIcon]="setIcon(job.data.meta_data.googlejobs.derivedInfo.jobCategories[0])" aria-hidden="false" class="job-icons"></mat-icon>
       <mat-panel-title>{{job.data.title}}</mat-panel-title>
       <mat-panel-description>{{job.data.city}}</mat-panel-description>
     </mat-expansion-panel-header>

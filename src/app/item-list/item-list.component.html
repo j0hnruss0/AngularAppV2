@@ -40,7 +40,7 @@
 
 <mat-autocomplete #auto="matAutocomplete">
   <mat-option 
-    *ngFor="let job of clearData" 
+    *ngFor="let job of filteredOptions | async" 
     [value]="job.data.title"
   >
     {{ job.data.title }}

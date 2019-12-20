@@ -1,6 +1,11 @@
 # AngAppV2
 
+Example of a Job Search App using Angular and Angular Material. You can search for Jobs listed from the external API by name and filter them accordingly. The search bar auto-completes for any search terms you enter, then click on the term in the auto complete list, click "Filter Jobs", then you can see the job card(s) found in the search 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+
+### My Angular App (To be deployed later)
+<img src="AngAppV2.png" width="700">
 
 ## Development server
 

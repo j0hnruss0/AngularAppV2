@@ -12,6 +12,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemAlertComponent } from './item-alert/item-alert.component';
 import { DataService } from "./data.service";
@@ -39,7 +40,8 @@ import { OneJobDisplayComponent } from './one-job-display/one-job-display.compon
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatIconModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
