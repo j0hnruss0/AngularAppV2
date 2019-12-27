@@ -26,11 +26,11 @@ export class OneJobDisplayComponent implements OnInit {
 
     iconRegistry.addSvgIcon(
       'MEDIA_COMMUNICATIONS_AND_WRITING',
-      sanitizer.bypassSecurityTrustResourceUrl('http://cdn.onlinewebfonts.com/svg/img_157010.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('https://cdn.onlinewebfonts.com/svg/img_157010.svg'));
     
     iconRegistry.addSvgIcon(
       'Random',
-      sanitizer.bypassSecurityTrustResourceUrl('http://cdn.onlinewebfonts.com/svg/img_524293.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('https://cdn.onlinewebfonts.com/svg/img_524293.svg'));
   }
 
   ngOnInit() {
